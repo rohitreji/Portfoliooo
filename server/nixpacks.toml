@@ -1,0 +1,11 @@
+[phases.setup]
+cmds = ["npm install"]
+
+[phases.install]
+cmds = ["npm install"]
+
+[phases.build]
+cmds = ["echo 'No build step needed'"]
+
+[start]
+cmd = "npm start"

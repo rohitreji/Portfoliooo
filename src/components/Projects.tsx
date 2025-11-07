@@ -7,21 +7,21 @@ const projects = [
 
   {
     title: "SensAI Mentor",
-    description: "Intelligent content creation platform powered by machine learning algorithms.",
+    description: "An AI career guidance project sounds like a perfect addition to your portfolio — especially since you’re pursuing MCA and aiming for AI and development..",
     image: "/images/SENSAI.png",
     tags: ["Python", "TensorFlow", "React", "FastAPI"],
     gradient: "from-purple-500/20 to-pink-500/20",
   },
     {
     title: "MovieTox-Movie Recommendation System",
-    description: "A modern, full-stack e-commerce solution with real-time inventory and payment processing.",
+    description: "Designed a machine-learning model that recommends movies based on users’ previous watch history, genre preferences, and ratings.",
     image: "/images/movietox.png",
     tags: ["React", "Node.js", "PostgreSQL", "Docker"],
     gradient: "from-blue-500/20 to-purple-500/20",
   },
   {
     title: "Portfolio Showcase",
-    description: "Interactive 3D portfolio with immersive animations and real-time graphics.",
+    description: "A personal portfolio website to showcase my projects, skills, and experience, built with modern web technologies.",
     image: "/images/port.png",
     tags: ["Three.js", "React", "WebGL", "GSAP"],
     gradient: "from-red-500/20 to-orange-500/20",

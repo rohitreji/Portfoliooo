@@ -41,7 +41,7 @@ export const Footer = () => {
         {/* Copyright */}
         <div className="mt-8 pt-8 border-t border-border text-center">
           <p className="text-muted-foreground text-sm flex items-center justify-center gap-2">
-            Made with <Heart className="w-4 h-4 text-primary animate-glow" fill="currentColor" /> © {new Date().getFullYear()} All rights reserved
+            Made with © {new Date().getFullYear()} All rights reserved
           </p>
         </div>
       </div>

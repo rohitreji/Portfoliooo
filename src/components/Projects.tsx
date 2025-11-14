@@ -19,7 +19,7 @@ const projects = [
     image: "/images/movietox.png",
     tags: ["React", "Node.js", "PostgreSQL", "Docker"],
     gradient: "from-blue-500/20 to-purple-500/20",
-    github: "https://github.com/rohitreji/Movie_Tox.git",
+    github: "https://github.com/srishticampus/movie_recommendation_system.git",
     website: "https://sensai-live.vercel.app",
   },
 ];

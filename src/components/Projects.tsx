@@ -4,29 +4,24 @@ import { ExternalLink, Github } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const projects = [
-
   {
     title: "SensAI Mentor",
-    description: "An AI career guidance project sounds like a perfect addition to your portfolio — especially since you’re pursuing MCA and aiming for AI and development..",
+    description: "An AI career guidance project sounds like a perfect addition to your portfolio — especially since you're pursuing MCA and aiming for AI and development..",
     image: "/images/SENSAI.png",
     tags: ["Python", "TensorFlow", "React", "FastAPI"],
     gradient: "from-purple-500/20 to-pink-500/20",
+    github: "https://github.com/rohitreji/SensAi-mentor.git",
+    website: "https://sensai-pj.vercel.app/",
   },
-    {
-    title: "MovieTox-Movie Recommendation System",
-    description: "Designed a machine-learning model that recommends movies based on users’ previous watch history, genre preferences, and ratings.",
+  {
+    title: "Movie Recommendation System",
+    description: "Designed a machine-learning model that recommends movies based on users' previous watch history, genre preferences, and ratings.",
     image: "/images/movietox.png",
     tags: ["React", "Node.js", "PostgreSQL", "Docker"],
     gradient: "from-blue-500/20 to-purple-500/20",
+    github: "https://github.com/rohitreji/Movie_Tox.git",
+    website: "https://sensai-live.vercel.app",
   },
-  {
-    title: "Portfolio Showcase",
-    description: "A personal portfolio website to showcase my projects, skills, and experience, built with modern web technologies.",
-    image: "/images/port.png",
-    tags: ["Three.js", "React", "WebGL", "GSAP"],
-    gradient: "from-red-500/20 to-orange-500/20",
-  },
-
 ];
 
 export const Projects = () => {
@@ -54,61 +49,78 @@ export const Projects = () => {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, index) => (
-            <motion.div
-              key={project.title}
-              initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="group"
-            >
-              <div className="glass rounded-xl overflow-hidden hover:border-primary/50 transition-all duration-300">
-                {/* Image */}
-                <div className="relative h-48 overflow-hidden">
-                  <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-60`} />
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                  />
-                  
-                  {/* Hover overlay */}
-                  <div className="absolute inset-0 bg-background/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
-                    <Button variant="ghost" size="icon" className="hover:bg-primary/20">
-                      <Github className="w-5 h-5" />
-                    </Button>
-                    <Button variant="ghost" size="icon" className="hover:bg-primary/20">
-                      <ExternalLink className="w-5 h-5" />
-                    </Button>
-                  </div>
-                </div>
-
-                {/* Content */}
-                <div className="p-6">
-                  <h3 className="text-xl font-semibold font-playfair mb-2 group-hover:text-primary transition-colors">
-                    {project.title}
-                  </h3>
-                  
-                  <p className="text-muted-foreground text-sm mb-4">
-                    {project.description}
-                  </p>
-
-                  {/* Tags */}
-                  <div className="flex flex-wrap gap-2">
-                    {project.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="px-3 py-1 text-xs font-medium bg-primary/10 text-primary rounded-full"
+        {/* Centered two-column layout */}
+        <div className="flex justify-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-4xl">
+            {projects.map((project, index) => (
+              <motion.div
+                key={project.title}
+                initial={{ opacity: 0, y: 30 }}
+                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                className="group"
+              >
+                <div className="glass rounded-xl overflow-hidden hover:border-primary/50 transition-all duration-300 h-full flex flex-col">
+                  {/* Image */}
+                  <div className="relative h-48 overflow-hidden flex-shrink-0">
+                    <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-60`} />
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    />
+                    
+                    {/* Hover overlay with working buttons */}
+                    <div className="absolute inset-0 bg-background/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
+                      <Button 
+                        variant="ghost" 
+                        size="icon" 
+                        className="hover:bg-primary/20"
+                        asChild
                       >
-                        {tag}
-                      </span>
-                    ))}
+                        <a href={project.github} target="_blank" rel="noopener noreferrer">
+                          <Github className="w-5 h-5" />
+                        </a>
+                      </Button>
+                      <Button 
+                        variant="ghost" 
+                        size="icon" 
+                        className="hover:bg-primary/20"
+                        asChild
+                      >
+                        <a href={project.website} target="_blank" rel="noopener noreferrer">
+                          <ExternalLink className="w-5 h-5" />
+                        </a>
+                      </Button>
+                    </div>
+                  </div>
+
+                  {/* Content */}
+                  <div className="p-6 flex-grow flex flex-col">
+                    <h3 className="text-xl font-semibold font-playfair mb-2 group-hover:text-primary transition-colors">
+                      {project.title}
+                    </h3>
+                    
+                    <p className="text-muted-foreground text-sm mb-4 flex-grow">
+                      {project.description}
+                    </p>
+
+                    {/* Tags */}
+                    <div className="flex flex-wrap gap-2">
+                      {project.tags.map((tag) => (
+                        <span
+                          key={tag}
+                          className="px-3 py-1 text-xs font-medium bg-primary/10 text-primary rounded-full"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
                   </div>
                 </div>
-              </div>
-            </motion.div>
-          ))}
+              </motion.div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

@@ -14,8 +14,8 @@ const categories = [
 const resources = [
   {
     id: 1,
-    title: "BCA Survival Guide",
-    description: "The ultimate survival guide and roadmap for BCA students.",
+    title: "First Step Towards IT field",
+    description: "To-do list for beginners in IT field",
     category: "notes",
     icon: BookOpen,
     color: "text-blue-500",
@@ -24,20 +24,6 @@ const resources = [
     link: "/images/BCA_Survival_Guide.pdf",
     tag: "Popular",
     tagColor: "bg-orange-500/10 text-orange-500",
-  },
-
-  {
-    id: 2,
-    title: "First Step Towards IT field",
-    description: "To-do list for beginners in IT field",
-    category: "notes",
-    icon: FileText,
-    color: "text-indigo-500",
-    bgColor: "bg-indigo-500/10",
-    gradient: "from-indigo-500/20 to-blue-500/20",
-    link: "/public/images/BCA_Survival_Guide.pdf",
-    tag: "Beginner",
-    tagColor: "bg-purple-500/10 text-purple-500",
   },
 ];
 

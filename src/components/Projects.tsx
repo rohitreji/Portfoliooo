@@ -5,14 +5,14 @@ import { Button } from "@/components/ui/button";
 
 const projects = [
   {
-    title: "Pehchaan - A Voter ID Verification Application",
-    description: "AI based Application Which verifiy wheather the user is Verified Voter of Particular Country Based on his or her Ad ",
+    title: "Pehchaan – Intelligent Voter Identity Verification",
+    description: "Developed a secure full-stack voter identity verification platform using React, Node.js, FastAPI, and MongoDB. The system enables voter registration, identity verification, and role-based authentication while integrating AI-powered face recognition and OCR-based document verification to reduce identity fraud. Built responsive dashboards for administrators and users, designed RESTful APIs, and implemented JWT authentication for secure access.",
     image: "/images/Pehchaan.png",
-    tags: ["React", "Node.js", "FastAPI", "Express.js"],
-    gradient: "from-purple-500/20 to-pink-500/20",
+    tags: ["React", "Node.js", "FastAPI", "MongoDB", "JWT", "Python"],
+    gradient: "from-indigo-500/20 to-cyan-500/20",
     github: "https://github.com/rohitreji/Pehaachan",
-    website: "https://pehchaan-two.vercel.app/login",
-  },
+    website: "https://pehchaan-two.vercel.app/",
+  }, ,
   {
     title: "Zomato Clone",
     description: "Developed a full-stack Zomato-inspired food delivery platform using the MERN stack with secure user authentication, restaurant and menu management, search & filtering, cart functionality, order management, and responsive UI. Built RESTful APIs with MongoDB for seamless data management.",

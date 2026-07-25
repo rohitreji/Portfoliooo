@@ -5,23 +5,24 @@ import { Button } from "@/components/ui/button";
 
 const projects = [
   {
-    title: "SensAI Mentor",
-    description: "An AI career guidance project sounds like a perfect addition to your portfolio — especially since you're pursuing MCA and aiming for AI and development..",
-    image: "/images/SENSAI.png",
-    tags: ["Python", "TensorFlow", "React", "FastAPI"],
+    title: "Pehchaan - A Voter ID Verification Application",
+    description: "AI based Application Which verifiy wheather the user is Verified Voter of Particular Country Based on his or her Ad ",
+    image: "/images/Pehchaan.png",
+    tags: ["React", "Node.js", "FastAPI", "Express.js"],
     gradient: "from-purple-500/20 to-pink-500/20",
-    github: "https://github.com/rohitreji/SensAi-mentor.git",
-    website: "https://sensai-pj.vercel.app/",
+    github: "https://github.com/rohitreji/Pehaachan",
+    website: "https://pehchaan-two.vercel.app/login",
   },
   {
-    title: "Movie Recommendation System",
-    description: "Designed a machine-learning model that recommends movies based on users' previous watch history, genre preferences, and ratings.",
-    image: "/images/movietox.png",
-    tags: ["React", "Node.js", "PostgreSQL", "Docker"],
-    gradient: "from-blue-500/20 to-purple-500/20",
-    github: "https://github.com/srishticampus/movie_recommendation_system.git",
-    website: "https://sensai-live.vercel.app",
+    title: "Zomato Clone",
+    description: "Developed a full-stack Zomato-inspired food delivery platform using the MERN stack with secure user authentication, restaurant and menu management, search & filtering, cart functionality, order management, and responsive UI. Built RESTful APIs with MongoDB for seamless data management.",
+    image: "/images/zomato.png",
+    tags: ["React", "Node.js", "Express.js", "MongoDB", "Tailwind CSS"],
+    gradient: "from-red-500/20 to-orange-500/20",
+    github: "https://github.com/rohitreji/ZomatoDummy",
+    website: "https://zomato-dummy.vercel.app/",
   },
+
 ];
 
 export const Projects = () => {
@@ -69,12 +70,12 @@ export const Projects = () => {
                       alt={project.title}
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                     />
-                    
+
                     {/* Hover overlay with working buttons */}
                     <div className="absolute inset-0 bg-background/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
-                      <Button 
-                        variant="ghost" 
-                        size="icon" 
+                      <Button
+                        variant="ghost"
+                        size="icon"
                         className="hover:bg-primary/20"
                         asChild
                       >
@@ -82,9 +83,9 @@ export const Projects = () => {
                           <Github className="w-5 h-5" />
                         </a>
                       </Button>
-                      <Button 
-                        variant="ghost" 
-                        size="icon" 
+                      <Button
+                        variant="ghost"
+                        size="icon"
                         className="hover:bg-primary/20"
                         asChild
                       >
@@ -100,7 +101,7 @@ export const Projects = () => {
                     <h3 className="text-xl font-semibold font-playfair mb-2 group-hover:text-primary transition-colors">
                       {project.title}
                     </h3>
-                    
+
                     <p className="text-muted-foreground text-sm mb-4 flex-grow">
                       {project.description}
                     </p>

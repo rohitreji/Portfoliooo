@@ -13,9 +13,9 @@ const skillCategories = [
   {
     category: "Backend",
     skills: [
-      { name: "Django", level: 88 },
+      { name: "MongoDB", level: 88 },
       { name: "Python", level: 82 },
-      { name: "PostgreSQL", level: 85 },
+      { name: "SQL", level: 85 },
     ],
   },
   {
@@ -23,7 +23,6 @@ const skillCategories = [
     skills: [
       { name: "Figma", level: 40 },
       { name: "Git", level: 70 },
-      { name: "Docker", level: 20 },
       { name: "VS Code", level: 88 },
     ],
   },
@@ -66,7 +65,7 @@ export const Skills = () => {
               <h3 className="text-xl font-semibold font-playfair mb-6 text-primary">
                 {category.category}
               </h3>
-              
+
               <div className="space-y-6">
                 {category.skills.map((skill, skillIndex) => (
                   <div key={skill.name}>
@@ -74,7 +73,7 @@ export const Skills = () => {
                       <span className="text-sm font-medium">{skill.name}</span>
                       <span className="text-sm text-muted-foreground">{skill.level}%</span>
                     </div>
-                    
+
                     <div className="h-2 bg-secondary rounded-full overflow-hidden">
                       <motion.div
                         initial={{ width: 0 }}

@@ -1,6 +1,6 @@
 import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
-import { Mail, MapPin, Phone, Send } from "lucide-react";
+import { Mail, MapPin, Phone, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -15,9 +15,9 @@ const contactInfo = [
 	},
 	{
 		icon: Phone,
-		label: "Phone",
+		label: "WhatsApp",
 		value: "+91 6395209853",
-		href: "tel:+916395209853",
+		href: "https://wa.me/916395209853",
 	},
 	{
 		icon: MapPin,
@@ -35,71 +35,24 @@ export const Contact = () => {
 		email: "",
 		message: "",
 	});
-	const [isLoading, setIsLoading] = useState(false);
-
-	// Your Google Apps Script URL
-	const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxhPJW7jWtmN-OoTBMa4NfpEIwZpHS-51MnEIURXu7q9nxAMR7-2iGeg1vMw37jH3Z9/exec";
-
-	const handleSubmit = async (e: React.FormEvent) => {
+	const handleSubmit = (e: React.FormEvent) => {
 		e.preventDefault();
-		
-		// Basic validation
 		if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) {
 			toast.error("Please fill in all fields");
 			return;
 		}
-
-		setIsLoading(true);
-		const toastId = toast.loading("Sending message...");
-
-		try {
-			// Method 1: Simple GET request (most reliable for Google Apps Script)
-			const params = new URLSearchParams({
-				name: formData.name.trim(),
-				email: formData.email.trim(),
-				message: formData.message.trim(),
-				timestamp: new Date().toISOString(),
-				source: "portfolio-website"
-			});
-
-			// Use a simple fetch with timeout
-			const timeoutPromise = new Promise((_, reject) => 
-				setTimeout(() => reject(new Error('Request timeout')), 10000)
-			);
-
-			const fetchPromise = fetch(`${GOOGLE_SCRIPT_URL}?${params}`, {
-				method: "GET",
-				mode: 'no-cors' // This prevents reading response but allows the request
-			});
-
-			// Wait for either the fetch or timeout
-			await Promise.race([fetchPromise, timeoutPromise]);
-
-			// If we get here without error, the request was sent
-			// Even with no-cors, the Google Apps Script should still receive the data
-			toast.success("Message sent successfully! I'll get back to you soon.");
-			setFormData({ name: "", email: "", message: "" });
-
-		} catch (error) {
-			console.log("Request details:", {
-				name: formData.name,
-				email: formData.email,
-				message: formData.message.substring(0, 50) + "..."
-			});
-			
-			// Even if there's an error, the message might have been sent
-			// Google Apps Script often works even when we get CORS errors
-			toast.success("Message sent successfully! I'll get back to you soon.");
-			setFormData({ name: "", email: "", message: "" });
-			
-			// Optional: Also open email client as backup
-			const subject = `Portfolio Contact from ${formData.name}`;
-			const body = `Name: ${formData.name}%0D%0AEmail: ${formData.email}%0D%0AMessage: ${formData.message}`;
-			window.open(`mailto:r4rohitreji@gmail.com?subject=${subject}&body=${body}`, '_blank');
-		} finally {
-			setIsLoading(false);
-			toast.dismiss(toastId);
-		}
+		const text = [
+			"Hello Rohit, I sent you a message from your portfolio.",
+			`Name: ${formData.name.trim()}`,
+			`Email: ${formData.email.trim()}`,
+			"",
+			formData.message.trim(),
+		].join("\n");
+		const whatsappUrl = `https://wa.me/916395209853?text=${encodeURIComponent(text)}`;
+		const whatsappWindow = window.open(whatsappUrl, "_blank");
+		if (whatsappWindow) whatsappWindow.opener = null;
+		else window.location.assign(whatsappUrl);
+		toast.success("WhatsApp opened with your message. Tap Send in WhatsApp to deliver it.");
 	};
 
 	const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -202,7 +155,6 @@ export const Contact = () => {
 									placeholder="Your name"
 									required
 									className="bg-background/50"
-									disabled={isLoading}
 								/>
 							</div>
 
@@ -219,7 +171,6 @@ export const Contact = () => {
 									placeholder="your@email.com"
 									required
 									className="bg-background/50"
-									disabled={isLoading}
 								/>
 							</div>
 
@@ -236,7 +187,6 @@ export const Contact = () => {
 									rows={6}
 									required
 									className="bg-background/50 resize-none"
-									disabled={isLoading}
 								/>
 							</div>
 
@@ -245,10 +195,9 @@ export const Contact = () => {
 								variant="hero" 
 								size="lg" 
 								className="w-full"
-								disabled={isLoading}
 							>
-								<Send className="w-4 h-4 mr-2" />
-								{isLoading ? "Sending..." : "Send Message"}
+								<MessageCircle className="w-4 h-4 mr-2" />
+								Continue to WhatsApp
 							</Button>
 						</form>
 					</motion.div>

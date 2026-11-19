@@ -1,9 +1,9 @@
-import { Github, Linkedin, Twitter, Heart } from "lucide-react";
+import { Github, Linkedin, Instagram } from "lucide-react";
 
 const socialLinks = [
-  { icon: Github, href: "https://github.com", label: "GitHub" },
-  { icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
-  { icon: Twitter, href: "https://twitter.com", label: "Twitter" },
+  { icon: Github, href: "https://github.com/rohitreji", label: "GitHub" },
+  { icon: Linkedin, href: "https://www.linkedin.com/in/rohit-reji-455a67249/", label: "LinkedIn" },
+  { icon: Instagram, href: "https://www.instagram.com/rohit_reji/", label: "Instagram" },
 ];
 
 export const Footer = () => {
@@ -14,10 +14,10 @@ export const Footer = () => {
           {/* Brand */}
           <div className="text-center md:text-left">
             <h3 className="text-2xl font-bold font-playfair gradient-text mb-2">
-              Portfolio
+              Rohit Reji<span className="text-primary">.</span>
             </h3>
             <p className="text-muted-foreground text-sm">
-              Crafting digital experiences with passion
+              Developer · Designer · Curious by nature
             </p>
           </div>
 

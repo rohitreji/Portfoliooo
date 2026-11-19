@@ -1,129 +1,34 @@
-import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
-import { ExternalLink, Github } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { ArrowUpRight, Github } from "lucide-react";
+import { motion } from "framer-motion";
 
 const projects = [
-  {
-    title: "Pehchaan – Intelligent Voter Identity Verification",
-    description: "Developed a secure full-stack voter identity verification platform using React, Node.js, FastAPI, and MongoDB. The system enables voter registration, identity verification, and role-based authentication while integrating AI-powered face recognition and OCR-based document verification to reduce identity fraud. Built responsive dashboards for administrators and users, designed RESTful APIs, and implemented JWT authentication for secure access.",
-    image: "/images/Pehchaan.png",
-    tags: ["React", "Node.js", "FastAPI", "MongoDB", "JWT", "Python"],
-    gradient: "from-indigo-500/20 to-cyan-500/20",
-    github: "https://github.com/rohitreji/Pehaachan",
-    website: "https://pehchaan-two.vercel.app/",
-  }, ,
-  {
-    title: "Zomato Clone",
-    description: "Developed a full-stack Zomato-inspired food delivery platform using the MERN stack with secure user authentication, restaurant and menu management, search & filtering, cart functionality, order management, and responsive UI. Built RESTful APIs with MongoDB for seamless data management.",
-    image: "/images/zomato.png",
-    tags: ["React", "Node.js", "Express.js", "MongoDB", "Tailwind CSS"],
-    gradient: "from-red-500/20 to-orange-500/20",
-    github: "https://github.com/rohitreji/ZomatoDummy",
-    website: "https://zomato-dummy.vercel.app/",
-  },
-
+  { number: "01", type: "Full stack · Identity tech", title: "Pehchaan", description: "A voter identity verification platform bringing face recognition, OCR and secure registration together in one clear experience.", image: "/images/Pehchaan.png", tags: ["React", "Node.js", "FastAPI", "MongoDB"], github: "https://github.com/rohitreji/Pehaachan", website: "https://pehchaan-two.vercel.app/" },
+  { number: "02", type: "AI · Movie discovery", title: "MovieTox", description: "An AI powered movie discovery experience that uses personal preferences to help people find their next watch.", image: "/images/movietox.png", tags: ["React", "Python", "Machine Learning", "API"], github: "https://github.com/rohitreji", website: "#" },
 ];
 
-export const Projects = () => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
-
-  return (
-    <section id="projects" className="py-20 relative overflow-hidden">
-      <div className="absolute inset-0 opacity-20">
-        <div className="absolute bottom-0 left-1/3 w-[500px] h-[500px] bg-accent/30 rounded-full blur-[120px]" />
+export const Projects = () => (
+  <section id="projects" className="py-24 md:py-32">
+    <div className="section-wrap">
+      <div className="mb-14 flex flex-col justify-between gap-6 border-b border-foreground/15 pb-8 md:flex-row md:items-end">
+        <div><p className="eyebrow mb-4">Selected work · 2024—2026</p><h2 className="text-5xl font-extrabold leading-none md:text-7xl">Things I’ve<br /><span className="text-primary">put into the world.</span></h2></div>
+        <p className="max-w-sm text-muted-foreground">A selection of products and experiments shaped by curiosity, care and a love of solving useful problems.</p>
       </div>
-
-      <div className="container mx-auto px-4 relative z-10" ref={ref}>
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-4xl md:text-5xl font-bold font-playfair mb-4">
-            Featured <span className="gradient-text">Projects</span>
-          </h2>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            A showcase of my recent work combining innovation, design, and technical excellence
-          </p>
-        </motion.div>
-
-        {/* Centered two-column layout */}
-        <div className="flex justify-center">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-4xl">
-            {projects.map((project, index) => (
-              <motion.div
-                key={project.title}
-                initial={{ opacity: 0, y: 30 }}
-                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="group"
-              >
-                <div className="glass rounded-xl overflow-hidden hover:border-primary/50 transition-all duration-300 h-full flex flex-col">
-                  {/* Image */}
-                  <div className="relative h-48 overflow-hidden flex-shrink-0">
-                    <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-60`} />
-                    <img
-                      src={project.image}
-                      alt={project.title}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                    />
-
-                    {/* Hover overlay with working buttons */}
-                    <div className="absolute inset-0 bg-background/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
-                      <Button
-                        variant="ghost"
-                        size="icon"
-                        className="hover:bg-primary/20"
-                        asChild
-                      >
-                        <a href={project.github} target="_blank" rel="noopener noreferrer">
-                          <Github className="w-5 h-5" />
-                        </a>
-                      </Button>
-                      <Button
-                        variant="ghost"
-                        size="icon"
-                        className="hover:bg-primary/20"
-                        asChild
-                      >
-                        <a href={project.website} target="_blank" rel="noopener noreferrer">
-                          <ExternalLink className="w-5 h-5" />
-                        </a>
-                      </Button>
-                    </div>
-                  </div>
-
-                  {/* Content */}
-                  <div className="p-6 flex-grow flex flex-col">
-                    <h3 className="text-xl font-semibold font-playfair mb-2 group-hover:text-primary transition-colors">
-                      {project.title}
-                    </h3>
-
-                    <p className="text-muted-foreground text-sm mb-4 flex-grow">
-                      {project.description}
-                    </p>
-
-                    {/* Tags */}
-                    <div className="flex flex-wrap gap-2">
-                      {project.tags.map((tag) => (
-                        <span
-                          key={tag}
-                          className="px-3 py-1 text-xs font-medium bg-primary/10 text-primary rounded-full"
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
+      <div className="grid gap-12 lg:grid-cols-2 lg:gap-8">
+        {projects.map((project, index) => (
+          <motion.article key={project.number} initial={{ opacity: 0, y: 80, rotateX: 8 }} whileInView={{ opacity: 1, y: 0, rotateX: 0 }} viewport={{ once: true, amount: .2 }} transition={{ duration: .8, delay: index * .12, ease: [0.22, 1, 0.36, 1] }} whileHover={{ y: -8, rotateY: index % 2 ? -1.2 : 1.2, transition: { duration: .35 } }} style={{ transformStyle: "preserve-3d", transformPerspective: 1200 }} className="group">
+            <a href={project.website === "#" ? project.github : project.website} target="_blank" rel="noreferrer" className="relative mb-6 block aspect-[1.52/1] overflow-hidden bg-secondary">
+              <img src={project.image} alt={`${project.title} project`} className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.035]" />
+              <span className="absolute bottom-4 right-4 grid h-12 w-12 place-items-center rounded-full bg-primary text-white transition-transform group-hover:rotate-45"><ArrowUpRight size={21} /></span>
+            </a>
+            <div className="flex items-start justify-between gap-4">
+              <div><p className="eyebrow mb-2">{project.number} / {project.type}</p><h3 className="text-3xl font-bold md:text-4xl">{project.title}</h3></div>
+              <div className="flex gap-2 pt-2"><a href={project.github} target="_blank" rel="noreferrer" aria-label={`${project.title} source code`} className="grid h-10 w-10 place-items-center border border-foreground/20 hover:border-primary hover:text-primary"><Github size={17} /></a><a href={project.website} target="_blank" rel="noreferrer" aria-label={`${project.title} live website`} className="grid h-10 w-10 place-items-center border border-foreground/20 hover:border-primary hover:text-primary"><ArrowUpRight size={17} /></a></div>
+            </div>
+            <p className="mt-4 max-w-xl leading-relaxed text-muted-foreground">{project.description}</p>
+            <div className="mt-5 flex flex-wrap gap-2">{project.tags.map((tag) => <span key={tag} className="border border-foreground/15 px-3 py-1.5 text-[10px] font-bold uppercase tracking-wider">{tag}</span>)}</div>
+          </motion.article>
+        ))}
       </div>
-    </section>
-  );
-};
+    </div>
+  </section>
+);

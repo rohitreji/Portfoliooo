@@ -3,25 +3,33 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Rohit Reji </title>
-    <meta name="description" content="Modern portfolio showcasing creative development and design work with 3D effects and interactive animations" />
-    <meta name="author" content="Portfolio" />
+    <title>Rohit Reji — Developer & Digital Creator</title>
+    <meta name="theme-color" content="#11110f" />
+    <meta name="description" content="Portfolio of Rohit Reji — a developer creating thoughtful digital experiences, products and full stack applications." />
+    <meta name="author" content="Rohit Reji" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-    <meta property="og:title" content="Rohit reji | Creative Developer & Designer" />
-    <meta property="og:description" content="Modern portfolio with 3D effects and interactive animations" />
+    <meta property="og:title" content="Rohit Reji — Developer & Digital Creator" />
+    <meta property="og:description" content="Thoughtful digital experiences, products and full stack applications." />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="/image/fig.jpg" />
+    <meta property="og:image" content="/images/rohit-warm.png" />
 
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="dev" />
-    <meta name="twitter:image" content="/image/fig.jpg" />
+    <meta name="twitter:image" content="/images/rohit-warm.png" />
+    <style>
+      .portfolio-fallback{min-height:100vh;display:flex;align-items:flex-end;position:relative;overflow:hidden;padding:clamp(28px,7vw,100px);box-sizing:border-box;background:#11110f;color:#f4f4f0;font-family:Arial,sans-serif}
+      .portfolio-fallback img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 42%;opacity:.48}
+      .portfolio-fallback:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(17,17,15,.87),rgba(17,17,15,.08)),linear-gradient(0deg,#11110f,transparent 65%)}
+      .portfolio-fallback div{position:relative;z-index:1;max-width:1000px}.portfolio-fallback p{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:#cbf447}
+      .portfolio-fallback h1{font-size:clamp(72px,16vw,190px);line-height:.78;letter-spacing:-.09em;margin:28px 0;font-weight:800}.portfolio-fallback h1 span{color:#cbf447}
+      .portfolio-fallback .sub{max-width:560px;color:#d6d6d2;font-size:clamp(16px,2vw,21px);line-height:1.6;letter-spacing:0;text-transform:none}
+      .portfolio-fallback a{display:inline-block;margin-top:12px;border:1px solid rgba(255,255,255,.4);border-radius:100px;padding:13px 18px;color:#f4f4f0;text-decoration:none;font-size:11px;font-weight:bold;letter-spacing:.12em;text-transform:uppercase}
+    </style>
   </head>
 
   <body>
-    <div id="root"></div>
+    <div id="root"><main class="portfolio-fallback"><img src="/images/rohit-bw.jpeg" alt="" /><div><p>Developer · Digital creator · Kerala, India</p><h1>Rohit<br /><span>Reji®</span></h1><p class="sub">I design and build thoughtful digital experiences, from sharp interfaces to full stack products.</p><a href="mailto:r4rohitreji@gmail.com">Get in touch ↗</a></div></main></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

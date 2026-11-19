@@ -59,7 +59,7 @@ export const FreeResources = () => {
             Free resources I wish I had as a beginner 🚀
           </p>
           <p className="text-muted-foreground text-sm max-w-2xl mx-auto">
-            Comment on Instagram to get access or explore below! Downloadable study materials, guides, and toolkits.
+            Free, downloadable study materials and guides to help you take your first steps into tech.
           </p>
         </motion.div>
 

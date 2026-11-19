@@ -43,13 +43,31 @@
     --sidebar-ring: 74 100% 55%;
   }
   * { @apply border-border; }
-  html { scroll-behavior: auto; scroll-padding-top: 1.25rem; }
-  body { @apply bg-background text-foreground; font-family: 'Manrope', sans-serif; }
+  html {
+    scroll-behavior: auto;
+    scroll-padding-top: 1.25rem;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Manrope', sans-serif;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  * {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
   h1, h2, h3, h4, h5, h6 { font-family: 'Manrope', sans-serif; letter-spacing: -0.055em; }
   ::selection { background: hsl(var(--primary)); color: hsl(var(--primary-foreground)); }
-  ::-webkit-scrollbar { width: 8px; }
-  ::-webkit-scrollbar-track { background: hsl(var(--background)); }
-  ::-webkit-scrollbar-thumb { background: hsl(var(--primary)); border-radius: 8px; }
+  ::-webkit-scrollbar,
+  *::-webkit-scrollbar {
+    display: none;
+    width: 0px;
+    height: 0px;
+    background: transparent;
+  }
 }
 @layer utilities {
   .glass { background: var(--glass-bg); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border: 1px solid var(--glass-border); transition: border-color .4s ease, box-shadow .4s ease; }
